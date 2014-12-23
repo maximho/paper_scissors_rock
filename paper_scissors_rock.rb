@@ -1,40 +1,51 @@
 class Game
-  def initialize()
+  def initalize(option)
+    @option = option
   end
 
-    def paper
-      if stone
-        puts "You, win!"
-      elsif scissors
-        puts "You, lose!"
-      elsif paper
-        puts "Draw!"
-      else
-        puts "Please, write: paper, scissors or stone "
-      end
-    end
+  def sampler(option)
+    array = [paper, scissor, rock]
+    array.sample
+  end
 
-    def scissors
-      if stone
-        puts "You, lose!"
-      elsif paper
-        puts "You, win!"
-      elsif scissors
-        puts "Draw!"
-      else
-        puts "Please, write: paper, scissors or stone "
-      end
-    end
-
-    def stone
-      if scissors
-        puts "You, win!"
-      elsif paper
-        puts "You, lose!"
-      elsif stone
-        puts "Draw!"
-      else
-        puts "Please, write: paper, scissors or stone "
-      end
+  def parer(option)
+    if rock
+      puts "You win!"
+    elsif scrissor
+      puts "you lose!"
+    elsif paper
+      puts "draw!"
+    else
+      puts "Please write paper, scrissor or rock"
     end
   end
+
+  def scissor(option)
+    if rock
+      puts "You lose!"
+    elsif scrissor
+      puts "draw!"
+    elsif paper
+      puts "you win!"
+    else
+      puts "Please write paper, scrissor or rock"
+    end
+  end
+
+  def rock(option)
+    if rock
+      puts "draw!"
+    elsif scrissor
+      puts "you lose!"
+    elsif paper
+      puts "you win!"
+    else
+      puts "Please write paper, scrissor or rock"
+    end
+  end
+end
+
+p "Choose Paper, Scissor or rock"
+@option = gets.chomp
+
+
