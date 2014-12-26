@@ -1,51 +1,30 @@
-class Game
-  def initalize(option)
-    @option = option
+class Paperscissorsrock
+  def start_game
+    puts 'Welcome to the paper, scissors, stone game!'
+    puts 'please choose your option paper, scrissors, rock'
+    sampler
   end
 
-  def sampler(option)
-    array = [paper, scissor, rock]
-    array.sample
+  def sampler
+      @option = gets.chomp.downcase
+      @array = ["paper", "scissors", "rock"]
+      @computer_choice = @array.sample
+      resolve_game
   end
 
-  def parer(option)
-    if rock
-      puts "You win!"
-    elsif scrissor
-      puts "you lose!"
-    elsif paper
-      puts "draw!"
-    else
-      puts "Please write paper, scrissor or rock"
-    end
-  end
-
-  def scissor(option)
-    if rock
-      puts "You lose!"
-    elsif scrissor
-      puts "draw!"
-    elsif paper
-      puts "you win!"
-    else
-      puts "Please write paper, scrissor or rock"
-    end
-  end
-
-  def rock(option)
-    if rock
-      puts "draw!"
-    elsif scrissor
-      puts "you lose!"
-    elsif paper
-      puts "you win!"
-    else
-      puts "Please write paper, scrissor or rock"
+  def resolve_game
+    case [@option, @computer_choice]
+      when [ "scissors",  "paper"], ["paper", "rock"], ["rock", "scissors"]
+        p "congrats! You win!"
+      when [ "paper", "scissors"],["rock","paper"], ["scissors","rock"]
+        p "you lose"
+      when @option == @computer_choice
+        p "draw, try again!"
+      else
+        p "sorry, write well the option you want (paper,scissors, stone)"
     end
   end
 end
 
-p "Choose Paper, Scissor or rock"
-@option = gets.chomp
-
-
+game = Paperscissorsrock.new
+game.start_game
