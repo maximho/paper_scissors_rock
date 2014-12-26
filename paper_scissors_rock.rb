@@ -1,5 +1,5 @@
 class Game
-  def initalize(option)
+  def initialize(option)
     @option = option
   end
 
@@ -47,5 +47,3 @@ end
 
 p "Choose Paper, Scissor or rock"
 @option = gets.chomp
-
-
