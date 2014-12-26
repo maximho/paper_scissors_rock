@@ -6,7 +6,7 @@ class Paperscissorsrock
   end
 
   def sampler
-      @option = gets.chomp
+      @option = gets.chomp.downcase
       @array = ["paper", "scissors", "rock"]
       @computer_choice = @array.sample
       resolve_game
